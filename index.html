@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>科技风汽车模型作品集 | 新能源车型集锦</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        tech: {
+                            primary: '#0ea5e9',
+                            secondary: '#10b981',
+                            dark: '#0f172a',
+                            light: '#f8fafc',
+                            accent: '#7c3aed',
+                        },
+                    },
+                    fontFamily: {
+                        tech: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .bg-tech-gradient {
+                background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 20px 25px -5px rgba(14, 165, 233, 0.2), 0 8px 10px -6px rgba(14, 165, 233, 0.2);
+            }
+            .param-panel {
+                transition: opacity 0.5s ease, transform 0.5s ease;
+            }
+        }
+    </style>
+</head>
+<body class="bg-tech-gradient text-tech-light font-tech min-h-screen">
+    <nav class="sticky top-0 z-50 bg-tech-dark/80 backdrop-blur-md border-b border-tech-primary/20">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold text-tech-primary flex items-center">
+                <i class="fa fa-car mr-2"></i>
+                <span>汽车模型集</span>
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="hover:text-tech-primary transition-colors">首页</a>
+                <a href="#works" class="hover:text-tech-primary transition-colors">作品列表</a>
+                <a href="#about" class="hover:text-tech-primary transition-colors">关于</a>
+            </div>
+            <button id="menuBtn" class="md:hidden text-tech-light text-xl">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        <div id="mobileMenu" class="md:hidden hidden bg-tech-dark/95 backdrop-blur-md border-b border-tech-primary/20">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+                <a href="#home" class="py-2 hover:text-tech-primary transition-colors">首页</a>
+                <a href="#works" class="py-2 hover:text-tech-primary transition-colors">作品列表</a>
+                <a href="#about" class="py-2 hover:text-tech-primary transition-colors">关于</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="min-h-[90vh] flex items-center justify-center px-4 py-16">
+        <div class="container mx-auto text-center">
+            <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-tech-primary to-tech-accent">
+                新能源汽车模型集锦
+            </h1>
+            <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+                聚焦小米SU7、五菱缤果、吉利星愿等热门车型，以科技视角呈现极致的模型细节与参数解析
+            </p>
+            <a href="#works" class="bg-tech-primary hover:bg-tech-primary/80 text-white px-8 py-3 rounded-lg font-medium transition-all inline-flex items-center">
+                <i class="fa fa-arrow-down mr-2"></i> 查看作品
+            </a>
+            <div class="mt-16 flex justify-center">
+                <div class="w-full max-w-4xl h-64 rounded-lg overflow-hidden border border-tech-primary/30">
+                    <img src="https://picsum.photos/id/1072/1200/400" alt="汽车模型封面" class="w-full h-full object-cover opacity-80">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="works" class="py-20 px-4">
+        <div class="container mx-auto">
+            <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-12 text-center">
+                <span class="text-tech-primary">车型</span> 作品列表
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-tech-dark/50 rounded-xl overflow-hidden border border-tech-primary/20 card-hover" id="su7-card">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://picsum.photos/id/1071/600/400" alt="小米SU7模型" class="w-full h-full object-cover transition-transform hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-tech-primary mb-2">小米SU7</h3>
+                        <p class="text-gray-300 mb-4">纯电动中大型轿车，科技感拉满的旗舰车型</p>
+                        <button onclick="showParams('su7')" class="w-full bg-tech-primary/20 hover:bg-tech-primary/30 text-tech-primary py-2 rounded-lg transition-colors">
+                            <i class="fa fa-list-ul mr-1"></i> 查看参数
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-tech-dark/50 rounded-xl overflow-hidden border border-tech-primary/20 card-hover" id="bingo-card">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://picsum.photos/id/1070/600/400" alt="五菱缤果模型" class="w-full h-full object-cover transition-transform hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-tech-primary mb-2">五菱缤果</h3>
+                        <p class="text-gray-300 mb-4">小型纯电代步车，高颜值高性价比之选</p>
+                        <button onclick="showParams('bingo')" class="w-full bg-tech-primary/20 hover:bg-tech-primary/30 text-tech-primary py-2 rounded-lg transition-colors">
+                            <i class="fa fa-list-ul mr-1"></i> 查看参数
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-tech-dark/50 rounded-xl overflow-hidden border border-tech-primary/20 card-hover" id="xingyuan-card">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://picsum.photos/id/1069/600/400" alt="吉利星愿模型" class="w-full h-full object-cover transition-transform hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-tech-primary mb-2">吉利星愿</h3>
+                        <p class="text-gray-300 mb-4">紧凑型纯电轿车，主打家用与智能体验</p>
+                        <button onclick="showParams('xingyuan')" class="w-full bg-tech-primary/20 hover:bg-tech-primary/30 text-tech-primary py-2 rounded-lg transition-colors">
+                            <i class="fa fa-list-ul mr-1"></i> 查看参数
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="paramModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 hidden">
+        <div class="bg-tech-dark w-full max-w-2xl rounded-xl border border-tech-primary/30 p-8 param-panel transform scale-95 opacity-0">
+            <div class="flex justify-between items-center mb-6">
+                <h3 id="modalTitle" class="text-2xl font-bold text-tech-primary">车型参数</h3>
+                <button onclick="closeParams()" class="text-gray-400 hover:text-white text-xl">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div id="modalContent" class="space-y-4 text-gray-200">
+            </div>
+            <div class="mt-8 text-center">
+                <button onclick="closeParams()" class="bg-tech-primary/20 hover:bg-tech-primary/30 text-tech-primary px-6 py-2 rounded-lg transition-colors">
+                    关闭
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <section id="about" class="py-20 px-4 bg-tech-dark/30">
+        <div class="container mx-auto text-center">
+            <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-6">
+                关于<span class="text-tech-primary">作品集</span>
+            </h2>
+            <p class="text-gray-300 max-w-2xl mx-auto">
+                本作品集聚焦新能源汽车模型的展示与参数解析，涵盖小米SU7、五菱缤果、吉利星愿等热门车型，
+                以科技风设计呈现车型的核心参数与设计亮点，仅供学习交流使用。
+            </p>
+        </div>
+    </section>
+
+    <footer class="py-8 px-4 border-t border-tech-primary/20">
+        <div class="container mx-auto text-center text-gray-400">
+            <p>© 2026 汽车模型作品集 | 科技风设计</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        const carParams = {
+            su7: {
+                title: "小米SU7 详细参数",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="p-3 bg-tech-dark/50 rounded-lg">
+                            <p class="font-medium text-tech-primary">车型定位</p>
+                            <p>纯电动中大型轿车</p>
+                        </div>
+                        <div class="p-3 bg-tech-dark/50 rounded-lg">
+                            <p class="font-medium text-tech-primary">驱动方式</p>
+                            <p>后驱/四驱</p>
+                        </div>
+                        <div class="p-3 bg-tech-dark/50 rounded-lg">
+                            <p class="font-medium text-tech-primary">最大功率</p>
+                            <p>220kW（后驱版）/ 495kW（四驱版）</p>
+                        </div>
+                        <div class="p-3 bg-tech-dark/50 rounded-lg">
+                            <p class="font-medium text-tech-primary">峰值扭矩</p>
+                            <p>400N·m（后驱版）/ 830N·m（四驱版）</p>
+                        </div>
+                        <div class="p-3 bg-tech-dark/50 rounded-lg">
+                            <p class="font-medium text-tech-primary">续航里程</p>
+                            <p>700km（CLTC工况）</p>
+                        </div>
+                        <div class="p-3 bg-tech-dark/50 rounded-lg">
+                            <p class="font-medium text-tech-primary">0-100km/h加速</p>
+                            <p>2.78秒（四驱顶配版）</p>
+                        </div>
+                    </div>
+                `
+            },
+            bingo: {
+                title: "五菱缤果 详细参数",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="p-3 bg-tech-dark/50 rounded-lg">
+                            <p class="font-medium text-tech-primary">车型定位</p>
+                            <p>小型纯电动代步车</p>
+                        </div>
+                        <div class="p-3 bg-tech-dark/50 rounded-lg">
+                            <p class="font-medium text-tech-primary">驱动方式</p>
+                            <p>前置前驱</p>
+                        </div>
+                        <div class="p-3 bg-tech-dark/50 rounded-lg">
+                            <p class="font-medium text-tech-primary">最大功率</p>
+                            <p>30kW/50kW</p>
+                        </div>
+                        <div class="p-3 bg-tech-dark/50 rounded-lg">
+                            <p class="font-medium text-tech-primary">峰值扭矩</p>
+                            <p>110N·m/150N·m</p>
+                        </div>
+                        <div class="p-3 bg-tech-dark/50 rounded-lg">
+                            <p class="font-medium text-tech-primary">续航里程</p>
+                            <p>203km/333km（CLTC工况）</p>
+                        </div>
+                        <div class="p-3 bg-tech-dark/50 rounded-lg">
+                            <p class="font-medium text-tech-primary">快充时间</p>
+                            <p>30分钟（30%-80%）</p>
+                        </div>
+                    </div>
+                `
+            },
+            xingyuan: {
+                title: "吉利星愿 详细参数",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="p-3 bg-tech-dark/50 rounded-lg">
+                            <p class="font-medium text-tech-primary">车型定位</p>
+                            <p>紧凑型纯电动轿车</p>
+                        </div>
+                        <div class="p-3 bg-tech-dark/50 rounded-lg">
+                            <p class="font-medium text-tech-primary">驱动方式</p>
+                            <p>前置前驱</p>
+                        </div>
+                        <div class="p-3 bg-tech-dark/50 rounded-lg">
+                            <p class="font-medium text-tech-primary">最大功率</p>
+                            <p>100kW</p>
+                        </div>
+                        <div class="p-3 bg-tech-dark/50 rounded-lg">
+                            <p class="font-medium text-tech-primary">峰值扭矩</p>
+                            <p>220N·m</p>
+                        </div>
+                        <div class="p-3 bg-tech-dark/50 rounded-lg">
+                            <p class="font-medium text-tech-primary">续航里程</p>
+                            <p>410km/530km（CLTC工况）</p>
+                        </div>
+                        <div class="p-3 bg-tech-dark/50 rounded-lg">
+                            <p class="font-medium text-tech-primary">电池容量</p>
+                            <p>38.8kWh/51.9kWh</p>
+                        </div>
+                    </div>
+                `
+            }
+        };
+
+        function showParams(carType) {
+            const modal = document.getElementById('paramModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalContent = document.getElementById('modalContent');
+            
+            modalTitle.textContent = carParams[carType].title;
+            modalContent.innerHTML = carParams[carType].content;
+            
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                const panel = modal.querySelector('.param-panel');
+                panel.classList.remove('scale-95', 'opacity-0');
+                panel.classList.add('scale-100', 'opacity-100');
+            }, 10);
+            
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeParams() {
+            const modal = document.getElementById('paramModal');
+            const panel = modal.querySelector('.param-panel');
+            
+            panel.classList.remove('scale-100', 'opacity-100');
+            panel.classList.add('scale-95', 'opacity-0');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        document.getElementById('paramModal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('paramModal')) {
+                closeParams();
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
